@@ -2,24 +2,26 @@
 
 ## 安装
 
-···js
+```js
 npm i
-···
+```
 
 ## 运行
 
-···js
+```js
 npm start
-···
+```
+
 ## 打包
 
-···js
+```js
 npm run starting
-···
+```
 
 ## 说明
 
 ```html
+<body>
   <p>版本：1.0</p>
   <p>作者：Tony Ma</p>
   <p>技术栈：vue+element+electron</p>
@@ -32,4 +34,5 @@ npm run starting
   </ul>
   <p>项目地址：https://github.com/maya1900/myamusic</p>
   <p>更新时间：2021-11-20</p>
+</body>
 ```
