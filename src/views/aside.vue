@@ -20,7 +20,7 @@
       <section>
         <h3>极简音乐</h3>
         <p>版本：1.0</p>
-        <p>作者：Tonny Ma</p>
+        <p>作者：Tony Ma</p>
         <p>技术栈：vue+element+electron</p>
         <p>功能：</p>
         <ul>

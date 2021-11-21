@@ -1,6 +1,8 @@
 {
-  "name": "myamusic",
-  "version": "0.1.0",
+  "name": "myaMusic",
+  "description": "一个简单的本地音乐播放器",
+  "version": "1.0.0",
+  "author": "Tony Ma",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,7 +12,8 @@
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "start": "npm run electron:serve"
+    "start": "npm run electron:serve",
+    "starting": "npm run electron:build"
   },
   "main": "background.js",
   "dependencies": {

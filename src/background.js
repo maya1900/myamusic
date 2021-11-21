@@ -6,7 +6,8 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import path from 'path'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const { ipcMain } = require("electron");
-const iconPath = path.join(__dirname, 'src/images/icon.ico')
+// eslint-disable-next-line no-undef
+const iconPath = path.join(__static, 'favicon.ico')
 let win, tray;
 
 // Scheme must be registered before the app is ready
@@ -42,7 +43,7 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
-  alert(iconPath)
+  console.log(iconPath);
   tray = new Tray(iconPath)
   tray.setToolTip('极简音乐')
   tray.on('click', () => {

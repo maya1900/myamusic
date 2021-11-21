@@ -2,7 +2,7 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 const jsmediatags = require('jsmediatags')
-const packageInfo = require('./package.json')
+const packageInfo = require('../../package.json')
 
 const cacheDir = path.resolve(os.homedir(), './Music/' + packageInfo.name)
 const albumDir = path.resolve(cacheDir, './albums')
