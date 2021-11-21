@@ -1,5 +1,7 @@
 # myamusic
 
+[![IvGGPs.png](https://z3.ax1x.com/2021/11/21/IvGGPs.png)](https://imgtu.com/i/IvGGPs)
+
 ## 安装
 
 ```js
