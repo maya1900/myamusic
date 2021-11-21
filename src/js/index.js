@@ -1,8 +1,8 @@
 import store from '../store'
 import _ from 'lodash'
 import path from 'path'
-const { ipcRenderer, remote } = require('electron');
-const remoteFunctions = remote.require('./remoteFunctions')
+const { ipcRenderer } = require('electron');
+const remoteFunctions = require('./remoteFunctions')
 const fs = require('fs');
 
 function syncSongsMetas(songs, index = 0) {

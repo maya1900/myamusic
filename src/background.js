@@ -2,11 +2,11 @@
 
 import { app, protocol, BrowserWindow, dialog, Tray, Menu } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
-import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
+// import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 const { ipcMain } = require("electron");
-// const iconPath = path.join(__dirname, )
+const iconPath = path.join(__dirname, 'src/images/icon.ico')
 let win, tray;
 
 // Scheme must be registered before the app is ready
@@ -35,14 +35,15 @@ async function createWindow() {
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     await win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    // if (!process.env.IS_TEST) win.webContents.openDevTools()
   } else {
     createProtocol('app')
     // Load the index.html when not in development
     win.loadURL('app://./index.html')
   }
 
-  tray = new Tray('./src/images/icon.png')
+  alert(iconPath)
+  tray = new Tray(iconPath)
   tray.setToolTip('极简音乐')
   tray.on('click', () => {
     if (win.isVisible()) {
@@ -74,13 +75,13 @@ app.on('activate', () => {
 })
 
 app.on('ready', async () => {
-  if (isDevelopment && !process.env.IS_TEST) {
-    try {
-      await installExtension(VUEJS_DEVTOOLS)
-    } catch (e) {
-      console.error('Vue Devtools failed to install:', e.toString())
-    }
-  }
+  // if (isDevelopment && !process.env.IS_TEST) {
+  //   try {
+  //     await installExtension(VUEJS_DEVTOOLS)
+  //   } catch (e) {
+  //     console.error('Vue Devtools failed to install:', e.toString())
+  //   }
+  // }
   createWindow()
 })
 
