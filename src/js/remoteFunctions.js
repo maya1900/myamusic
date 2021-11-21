@@ -28,7 +28,6 @@ if (!fs.existsSync(artistDir)) {
 module.exports = {
 
   readAudioTags(filePath) {
-
     return new Promise((resolve, reject) => {
       new jsmediatags.Reader(filePath)
         .setTagsToRead(['title', 'artist', 'album', 'picture'])
@@ -52,6 +51,7 @@ module.exports = {
             }
           },
           onError: (error) => {
+            debugger
             reject({
               title: path.basename(filePath)
             }, error)
@@ -62,20 +62,23 @@ module.exports = {
   },
 
   cacheAlbumCover(album, picture, callback) {
+    if(album && picture) {
+      let cacheFilePath = path.resolve(albumDir, album + '.' + picture.format.split('/')[1])
 
-    let cacheFilePath = path.resolve(albumDir, album + '.' + picture.format.split('/')[1])
-
-    if (!fs.existsSync(cacheFilePath)) {
-      let fileContent = this.convertPicture(picture)
-      if (fileContent) {
-        fs.writeFile(cacheFilePath, fileContent, 'binary', (error) => {
-          callback(cacheFilePath, error)
-        })
+      if (!fs.existsSync(cacheFilePath)) {
+        let fileContent = this.convertPicture(picture)
+        if (fileContent) {
+          fs.writeFile(cacheFilePath, fileContent, 'binary', (error) => {
+            callback(cacheFilePath, error)
+          })
+        } else {
+          callback(null, true)
+        }
       } else {
-        callback(null, true)
+        callback(cacheFilePath)
       }
     } else {
-      callback(cacheFilePath)
+      callback(null, true)
     }
 
   },

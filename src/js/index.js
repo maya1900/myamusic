@@ -50,7 +50,7 @@ ipcRenderer.on('selected-folder', (ev, pathList) => {
       for(let [i,item] of files.entries()) {
         let pathName = `${pathList[0]}\\${item}`
         let id = new Date().getTime() + '_' + i + '_' + Math.ceil(1000 + 9999 * Math.random())
-        if (list.map(item => item.src).indexOf(pathName) === -1 && pathName.indexOf('.mp3') !== -1) {
+        if (list.map(item => item.src).indexOf(pathName) === -1 && (pathName.indexOf('.mp3') !== -1 || pathName.indexOf('.flac') !== -1 || pathName.indexOf('.m4a') !== -1)) {
           list.push({
             id,
             name: path.basename(pathName),

@@ -98,7 +98,7 @@ ipcMain.on("minimize", () => {
 ipcMain.on('open-music-file', (event) => {
   dialog.showOpenDialog({
     properties: ['openFile', 'multiSelections'],
-    filters: [{ name: 'Music', extensions: ['mp3', 'flac'] }]
+    filters: [{ name: 'Music', extensions: ['mp3', 'flac', 'm4a'] }]
   }).then((res) => {
     // 拿到结果
     const { canceled, filePaths } = res
