@@ -1,1 +1,7 @@
 @import "./normalize.scss";
+
+.el-scrollbar__wrap {
+    overflow: scroll;
+    width: 110%;
+    height: 120%;
+}

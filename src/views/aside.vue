@@ -6,7 +6,9 @@
       <i class='el-icon-setting' @click="dialogVisible = true"></i>
     </div>
     <ol class='list'>
-      <li v-for="(v) in list" :key="v.id" :class="activeIndex == v.id ? 'active': ''" @dblclick="selectMusic(v.id)" @click="selectMusicOnly(v.id)" :title="v.name">{{v.name}}</li>
+      <el-scrollbar style="height:100%">
+        <li v-for="(v) in list" :key="v.id" :class="activeIndex == v.id ? 'active': ''" @dblclick="selectMusic(v.id)" @click="selectMusicOnly(v.id)" :title="v.name">{{v.name}}</li>
+      </el-scrollbar>
     </ol>
     <div class="current">
       <i class="cover"></i>
@@ -131,8 +133,8 @@ export default {
       }
     }
     .list {
-      padding: 10px;
-      height: calc(100% - 50px);
+      padding-left: 10px;
+      height: 350px;
       overflow-y: auto;
       li {
         height: 25px;

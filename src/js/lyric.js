@@ -64,7 +64,9 @@ export default class Lyric {
         advance(eIdx)
         nsIdx = lrc.indexOf('[')
         value = lrc.slice(0, nsIdx)
-        ret[key] = value.trim()
+        if (/^\[(\d+):(\d+)\.(\d+)/.test(key) && value.trim() !== '') {
+          ret[key] = value.trim()
+        }
         advance(nsIdx)
       } else {
         break
@@ -83,7 +85,7 @@ export default class Lyric {
         delete obj[str]
       } else {
         let prop = f(str)
-        if (prop) {
+        if (prop || prop === 0) {
           obj[prop] = obj[str]
         }
         delete obj[str]
