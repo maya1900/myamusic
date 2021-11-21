@@ -2,7 +2,7 @@
   <el-container>
     <el-header style="-webkit-app-region: drag; -webkit-user-select: none">
       <h3>
-        <i class="icon"></i>极简音乐
+        <i class="icon"></i>myaMusic
       </h3>
       <div class="tool">
         <i class="el-icon-minus" @click="minimize()"></i>

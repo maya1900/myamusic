@@ -18,7 +18,7 @@
       :show-close='false'
       width="50%">
       <section>
-        <h3>极简音乐</h3>
+        <h3>myaMusic</h3>
         <p>版本：1.0</p>
         <p>作者：Tony Ma</p>
         <p>技术栈：vue+element+electron</p>
