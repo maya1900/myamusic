@@ -1,5 +1,24 @@
 # myamusic
 
+## 安装
+
+···js
+npm i
+···
+
+## 运行
+
+···js
+npm start
+···
+## 打包
+
+···js
+npm run starting
+···
+
+## 说明
+
 ```html
   <p>版本：1.0</p>
   <p>作者：Tony Ma</p>
