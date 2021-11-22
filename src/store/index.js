@@ -73,6 +73,9 @@ export default new Vuex.Store({
     },
     addSong(state, song) {
       state.songs = [...state.songs, song]
+    },
+    setSong(state, songs) {
+      state.songs = [...state.songs, ...songs]
     }
   },
   getters: {

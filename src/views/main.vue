@@ -88,7 +88,7 @@ export default {
     'tempStatus.played' (time) {
       let ly = new Lyric(this.status.currentSongId);
       let lyric = ly.getCurPlayLyric(time)
-      console.log(lyric);
+      // console.log(lyric);
       if (lyric) {
         this.scrollLyric(lyric.curIndex)
       }

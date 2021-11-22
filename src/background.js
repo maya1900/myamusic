@@ -43,7 +43,7 @@ async function createWindow() {
     win.loadURL('app://./index.html')
   }
 
-  console.log(iconPath);
+  // console.log(iconPath);
   tray = new Tray(iconPath)
   tray.setToolTip('极简音乐')
   tray.on('click', () => {

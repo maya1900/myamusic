@@ -28,39 +28,45 @@ function syncSongsMetas(songs, index = 0) {
 ipcRenderer.on('selected-file', (ev, pathList) => {
   if (Array.isArray(pathList)) {
     let list = _.cloneDeep(store.state.pathList);
+    let listArr = []
     pathList.forEach((e, i) => {
       if (list.map(item => item.src).indexOf(e) === -1) {
         let id = new Date().getTime() + '_' + i + '_' + Math.ceil(1000 + 9999 * Math.random())
-        list.push({
+        let obj = {
           id,
           name: path.basename(e),
           src: e
-        })
-        syncSongsMetas([{id, src: e}])
+        }
+        list.push(obj)
+        listArr.push(obj)
       }
     })
     store.commit('set_pathList', list)
+    listArr.length && syncSongsMetas(listArr)
   }
 })
 
 ipcRenderer.on('selected-folder', (ev, pathList) => {
   if (Array.isArray(pathList)) {
     let list = store.state.pathList;
+    let listArr = []
     fs.readdir(pathList[0],(err, files) => {
       for(let [i,item] of files.entries()) {
         let pathName = `${pathList[0]}\\${item}`
         let id = new Date().getTime() + '_' + i + '_' + Math.ceil(1000 + 9999 * Math.random())
         if (list.map(item => item.src).indexOf(pathName) === -1 && (pathName.indexOf('.mp3') !== -1 || pathName.indexOf('.flac') !== -1 || pathName.indexOf('.m4a') !== -1)) {
-          list.push({
+          let obj = {
             id,
             name: path.basename(pathName),
             src: pathName
-          })
-          syncSongsMetas([{ id, src: pathName }])
+          }
+          list.push(obj)
+          listArr.push(obj)
         }
       }
     })
     store.commit('set_pathList', list)
+    listArr.length && syncSongsMetas(listArr)
   }
 })
 

@@ -93,8 +93,10 @@ export default {
       immediate: true,
       deep: true,
       handler(val) {
-        // console.log(val);
-        this.list = val
+        this.$nextTick(() => {
+          console.log(val);
+          this.list = val
+        })
       }
     },
     'status.currentSongId'(val) {
